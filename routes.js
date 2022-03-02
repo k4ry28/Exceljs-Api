@@ -26,13 +26,6 @@ router.get('/buscar_uno/:codigo', async (req, res) => {
 router.post('/crear_nuevo', (req, res) => {
     let datos = req.body;
 
-    /*
-    let fecha = datos.alta;
-    fecha = fecha.split('-');
-    datos.alta = `${fecha[2]}/${fecha[1]}/${fecha[0]}` */
-
-    //let datos = require('./SI-Mesa-comentarios.json');
-
     let mensaje = sheet.createFile(datos);
 
     res.send(mensaje);
