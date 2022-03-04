@@ -288,27 +288,27 @@ async function update(datos) {
                 //console.log(cod_cliente);
 
                 let n = 0;
+                let filas = 2;
 
                 // Borrar del excel filas q ya no esten en json de Sin Internet (casos resueltos)
                 let presencia = false;
 
                 for (let i = 0; i < cod_cliente.length; i++) {
-
+                    
                     for (let j = 0; j < datos.length; j++) {
 
                         if (cod_cliente[i] == datos[j].codigo_cliente) {
                             presencia = true;
-                            //j = datos.length;
+                            filas++;                            
                             //console.log(`cliente: ${cod_cliente[i]} esta`);
                         }
 
                         if ((j == (datos.length - 1)) && (presencia == false)) {
-                            console.log(`cliente: ${cod_cliente[i]} no esta. BORRADO`);
-                            worksheet.spliceRows((i + 2), 1);
+                            //console.log(`cliente: ${cod_cliente[i]} no esta. BORRADO`);
+                            worksheet.spliceRows((filas), 1);
                             n++;
                         }
                     }
-
                     presencia = false;
                 }
 
